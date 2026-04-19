@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fritz Insurance | Independent Insurance, Clearly Guided</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            ink: '#10233F',
+                            slate: '#5B6675',
+                            sand: '#F4EFE7',
+                            oat: '#FBF8F3',
+                            gold: '#C8953D',
+                            line: '#DED7CB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+                        display: ['Fraunces', 'serif']
+                    },
+                    boxShadow: {
+                        soft: '0 20px 60px rgba(16, 35, 63, 0.08)'
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background:
+                radial-gradient(circle at top right, rgba(200, 149, 61, 0.10), transparent 30%),
+                linear-gradient(180deg, #fcfaf6 0%, #ffffff 38%, #f4efe7 100%);
+        }
+
+        @keyframes carrier-marquee {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .carrier-track {
+            display: flex;
+            width: max-content;
+            animation: carrier-marquee 28s linear infinite;
+        }
+
+        .carrier-track:hover {
+            animation-play-state: paused;
+        }
+
+        .contact-panel {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease;
+        }
+
+        .contact-panel.open {
+            max-height: 720px;
+            opacity: 1;
+            margin-top: 1rem;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .carrier-track {
+                animation: none;
+            }
+
+            .contact-panel {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body class="text-brand-ink antialiased">
+    <div class="min-h-screen">
+        <header class="sticky top-0 z-50 border-b border-brand-line/70 bg-white/85 backdrop-blur-xl">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex min-h-[84px] items-center justify-between gap-6">
+                    <a href="#top" class="flex items-center">
+                        <img class="h-11 w-auto" src="image_9bc9c0.png" alt="Fritz Insurance Logo">
+                    </a>
+
+                    <nav class="hidden items-center gap-8 lg:flex">
+                        <a href="#lines" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-slate transition hover:text-brand-ink">Lines</a>
+                        <a href="#carriers" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-slate transition hover:text-brand-ink">Carriers</a>
+                        <a href="#about" class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-slate transition hover:text-brand-ink">About</a>
+                        <button id="contact-toggle" type="button" aria-expanded="false" aria-controls="contact-panel" class="rounded-full border border-brand-ink px-5 py-2.5 text-sm font-semibold uppercase tracking-[0.16em] text-brand-ink transition hover:bg-brand-ink hover:text-white">
+                            Contact Us
+                        </button>
+                    </nav>
+
+                    <button id="contact-toggle-mobile" type="button" aria-expanded="false" aria-controls="contact-panel" class="rounded-full border border-brand-ink px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-brand-ink lg:hidden">
+                        Contact
+                    </button>
+                </div>
+
+                <div id="contact-shell">
+                    <section id="contact-panel" class="contact-panel rounded-[28px] border border-brand-line bg-white p-5 shadow-soft sm:p-8" aria-hidden="true">
+                        <div class="mb-6 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-gold">Start A Conversation</p>
+                                <h2 class="mt-2 font-display text-3xl font-semibold leading-none text-brand-ink">Tell us what you need covered.</h2>
+                            </div>
+                            <p class="max-w-2xl text-sm leading-6 text-brand-slate">
+                                Auto, home, business, life, and property coverage guidance from an independent agency that actually compares options for you.
+                            </p>
+                        </div>
+
+                        <form class="grid grid-cols-1 gap-4 md:grid-cols-2" action="#" method="post">
+                            <label class="block">
+                                <span class="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-brand-slate">Name</span>
+                                <input type="text" name="name" placeholder="Your full name" class="w-full rounded-2xl border border-brand-line bg-brand-oat px-4 py-3 text-sm outline-none transition focus:border-brand-ink" />
+                            </label>
+                            <label class="block">
+                                <span class="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-brand-slate">Phone</span>
+                                <input type="tel" name="phone" placeholder="Best number to reach you" class="w-full rounded-2xl border border-brand-line bg-brand-oat px-4 py-3 text-sm outline-none transition focus:border-brand-ink" />
+                            </label>
+                            <label class="block">
+                                <span class="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-brand-slate">Email</span>
+                                <input type="email" name="email" placeholder="name@example.com" class="w-full rounded-2xl border border-brand-line bg-brand-oat px-4 py-3 text-sm outline-none transition focus:border-brand-ink" />
+                            </label>
+                            <label class="block">
+                                <span class="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-brand-slate">Line Of Interest</span>
+                                <select name="line_of_interest" class="w-full rounded-2xl border border-brand-line bg-brand-oat px-4 py-3 text-sm outline-none transition focus:border-brand-ink">
+                                    <option>Auto Insurance</option>
+                                    <option>Home Insurance</option>
+                                    <option>Business Insurance</option>
+                                    <option>Life Insurance</option>
+                                    <option>Farm And Property</option>
+                                </select>
+                            </label>
+                            <div class="md:col-span-2 flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
+                                <p class="text-sm text-brand-slate">Simple first step. No pressure, no jargon, no locked-in carrier bias.</p>
+                                <button type="submit" class="rounded-full bg-brand-ink px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-black">
+                                    Request Quote
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </header>
+
+        <main id="top">
+            <section class="px-4 pb-14 pt-14 sm:px-6 lg:px-8 lg:pb-20 lg:pt-20">
+                <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-[0.28em] text-brand-gold">Independent Insurance Agency</p>
+                        <h1 class="mt-5 max-w-5xl font-display text-6xl font-semibold leading-[0.94] text-brand-ink sm:text-7xl lg:text-[5.8rem]">
+                            Insurance guidance
+                            <span class="italic">without the fog.</span>
+                        </h1>
+                        <p class="mt-6 max-w-2xl text-lg leading-8 text-brand-slate sm:text-xl">
+                            Fritz Insurance helps families, property owners, and business operators find cleaner coverage decisions by comparing strong carriers and explaining the tradeoffs clearly.
+                        </p>
+
+                        <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+                            <button type="button" data-open-contact="true" class="rounded-full bg-brand-ink px-8 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-black">
+                                Open Contact Form
+                            </button>
+                            <a href="#lines" class="rounded-full border border-brand-line bg-white/80 px-8 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-brand-ink transition hover:border-brand-ink">
+                                Explore Coverage
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="rounded-[34px] border border-brand-line bg-white/90 p-6 shadow-soft sm:p-8">
+                        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-gold">What We Handle</p>
+                        <div class="mt-5 space-y-4">
+                            <div class="flex items-center justify-between border-b border-dashed border-brand-line pb-4">
+                                <span class="text-lg font-semibold text-brand-ink">Auto</span>
+                                <span class="text-sm text-brand-slate">Personal and multi-vehicle households</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-dashed border-brand-line pb-4">
+                                <span class="text-lg font-semibold text-brand-ink">Home</span>
+                                <span class="text-sm text-brand-slate">Owners, renters, and property policies</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-dashed border-brand-line pb-4">
+                                <span class="text-lg font-semibold text-brand-ink">Business</span>
+                                <span class="text-sm text-brand-slate">Liability and commercial protection</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-lg font-semibold text-brand-ink">Life</span>
+                                <span class="text-sm text-brand-slate">Protection for long-term planning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="px-4 pb-10 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-7xl rounded-[28px] border border-brand-line bg-white/70 px-5 py-4 backdrop-blur sm:px-7">
+                    <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-slate">Page Guide</p>
+                        <div class="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-brand-slate">
+                            <a href="#lines" class="rounded-full border border-brand-line px-4 py-2 transition hover:border-brand-ink hover:text-brand-ink">01 Lines</a>
+                            <a href="#carriers" class="rounded-full border border-brand-line px-4 py-2 transition hover:border-brand-ink hover:text-brand-ink">02 Carriers</a>
+                            <a href="#proof" class="rounded-full border border-brand-line px-4 py-2 transition hover:border-brand-ink hover:text-brand-ink">03 Proof</a>
+                            <a href="#about" class="rounded-full border border-brand-line px-4 py-2 transition hover:border-brand-ink hover:text-brand-ink">04 Team</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lines" class="px-4 py-20 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-7xl">
+                    <div class="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-gold">Lines Offered</p>
+                            <h2 class="mt-3 font-display text-5xl font-semibold leading-none text-brand-ink">Clean coverage categories, plainly framed.</h2>
+                        </div>
+                        <p class="max-w-2xl text-base leading-7 text-brand-slate">
+                            This section is intentionally simple: four strong panels, enough context to orient someone quickly, and no unnecessary insurance-language clutter.
+                        </p>
+                    </div>
+
+                    <div class="grid overflow-hidden rounded-[34px] border border-brand-line bg-white shadow-soft md:grid-cols-2 xl:grid-cols-4">
+                        <article class="group border-b border-brand-line p-8 transition hover:bg-brand-sand/45 md:border-r xl:border-b-0">
+                            <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-brand-line text-brand-ink transition group-hover:bg-brand-ink group-hover:text-white">
+                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19V6l12-3v13M9 19c0 1.657-1.79 3-4 3s-4-1.343-4-3 1.79-3 4-3 4 1.343 4 3zm12-4c0 1.657-1.79 3-4 3s-4-1.343-4-3 1.79-3 4-3 4 1.343 4 3z"/></svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-brand-ink">Auto</h3>
+                            <p class="mt-3 text-sm leading-7 text-brand-slate">
+                                Coverage built for everyday drivers, growing households, and clients trying to reduce premium without weakening the policy.
+                            </p>
+                        </article>
+
+                        <article class="group border-b border-brand-line p-8 transition hover:bg-brand-sand/45 xl:border-b-0 xl:border-r">
+                            <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-brand-line text-brand-ink transition group-hover:bg-brand-ink group-hover:text-white">
+                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10.5z"/></svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-brand-ink">Home</h3>
+                            <p class="mt-3 text-sm leading-7 text-brand-slate">
+                                Homeowners, renters, and property protection with attention to what is actually covered when something goes wrong.
+                            </p>
+                        </article>
+
+                        <article class="group border-b border-brand-line p-8 transition hover:bg-brand-sand/45 md:border-r md:border-b-0">
+                            <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-brand-line text-brand-ink transition group-hover:bg-brand-ink group-hover:text-white">
+                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm3 18v-5h6v5"/></svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-brand-ink">Business</h3>
+                            <p class="mt-3 text-sm leading-7 text-brand-slate">
+                                Liability, BOP, and commercial coverage support for owners who need protection aligned with how they actually operate.
+                            </p>
+                        </article>
+
+                        <article class="group p-8 transition hover:bg-brand-sand/45">
+                            <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-brand-line text-brand-ink transition group-hover:bg-brand-ink group-hover:text-white">
+                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 21s-7-4.35-7-11a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 6.65-7 11-7 11z"/></svg>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-brand-ink">Life</h3>
+                            <p class="mt-3 text-sm leading-7 text-brand-slate">
+                                Straightforward protection planning for families and individuals who want clarity, not a complicated pitch.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="carriers" class="border-y border-brand-line bg-brand-ink py-5 text-white">
+                <div class="mx-auto mb-4 flex max-w-7xl flex-col gap-2 px-4 sm:px-6 lg:px-8 sm:flex-row sm:items-center sm:justify-between">
+                    <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-gold">Carrier Access</p>
+                    <p class="text-xs uppercase tracking-[0.18em] text-white/55">Independent market access instead of a one-company script</p>
+                </div>
+
+                <div class="overflow-hidden">
+                    <div class="carrier-track gap-5 whitespace-nowrap text-sm font-semibold uppercase tracking-[0.22em] text-white/80">
+                        <span class="rounded-full border border-white/15 px-5 py-2">Progressive</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Nationwide</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Travelers</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Safeco</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">AAA</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Foremost</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Bristol West</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">The Hartford</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Progressive</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Nationwide</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Travelers</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Safeco</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">AAA</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Foremost</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">Bristol West</span>
+                        <span class="rounded-full border border-white/15 px-5 py-2">The Hartford</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="proof" class="px-4 py-20 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-5xl rounded-[36px] bg-brand-ink px-8 py-14 text-white shadow-soft sm:px-12">
+                    <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-gold">Client Perspective</p>
+                    <blockquote class="mt-6 font-display text-4xl font-semibold leading-tight sm:text-5xl">
+                        “We never feel sold to. We feel looked after.”
+                    </blockquote>
+                    <p class="mt-6 max-w-2xl text-base leading-7 text-white/72">
+                        The guidance is clear, the options are explained in plain language, and the process feels far less complicated than insurance usually does.
+                    </p>
+                    <p class="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-white/70">Long-time client family</p>
+                </div>
+            </section>
+
+            <section id="about" class="px-4 py-20 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-7xl">
+                    <div class="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-brand-gold">About Us</p>
+                            <h2 class="mt-3 font-display text-5xl font-semibold leading-none text-brand-ink">The team behind the calm.</h2>
+                        </div>
+                        <p class="max-w-2xl text-base leading-7 text-brand-slate">
+                            Separate from the sales sections on purpose. This is the human side of the agency: local, steady, and easy to work with.
+                        </p>
+                    </div>
+
+                    <div class="grid gap-10 md:grid-cols-3">
+                        <article class="space-y-5">
+                            <div class="aspect-square rounded-[28px] border border-brand-line bg-[linear-gradient(135deg,#f0e3cf,#d7c8b4)]"></div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-brand-ink">Jane Fritz</h3>
+                                <p class="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-brand-gold">Principal Agent</p>
+                            </div>
+                            <p class="text-sm leading-7 text-brand-slate">
+                                Jane leads the agency with a bias toward clarity. She specializes in translating dense insurance choices into practical recommendations that clients can trust.
+                            </p>
+                            <p class="border-t border-brand-line pt-4 text-sm italic leading-7 text-brand-slate">
+                                Off the clock: coffee, long walks, and never missing Sunday dinner.
+                            </p>
+                        </article>
+
+                        <article class="space-y-5">
+                            <div class="aspect-square rounded-[28px] border border-brand-line bg-[linear-gradient(135deg,#e4ebf2,#ccd9e6)]"></div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-brand-ink">John Doe</h3>
+                                <p class="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-brand-gold">Senior Account Manager</p>
+                            </div>
+                            <p class="text-sm leading-7 text-brand-slate">
+                                John keeps personal lines sharp and organized, with a strong eye for premium reduction opportunities and coverage details that often get missed.
+                            </p>
+                            <p class="border-t border-brand-line pt-4 text-sm italic leading-7 text-brand-slate">
+                                Off the clock: early runs, backyard grilling, and local baseball.
+                            </p>
+                        </article>
+
+                        <article class="space-y-5">
+                            <div class="aspect-square rounded-[28px] border border-brand-line bg-[linear-gradient(135deg,#efe2d6,#dbc8b7)]"></div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-brand-ink">Sarah Smith</h3>
+                                <p class="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-brand-gold">Client Success Specialist</p>
+                            </div>
+                            <p class="text-sm leading-7 text-brand-slate">
+                                Sarah helps the agency feel responsive and human. She is often the first point of contact and the reason clients feel taken care of quickly.
+                            </p>
+                            <p class="border-t border-brand-line pt-4 text-sm italic leading-7 text-brand-slate">
+                                Off the clock: gardening, local sports, and a running list of weekend projects.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="border-t border-brand-line bg-white/80 px-4 py-10 sm:px-6 lg:px-8">
+            <div class="mx-auto flex max-w-7xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold">Fritz Insurance</p>
+                    <p class="mt-2 text-sm text-brand-slate">Independent insurance guidance for families, property owners, and business operators.</p>
+                </div>
+                <p class="text-sm text-brand-slate">© 2026 Fritz Insurance. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const contactPanel = document.getElementById('contact-panel');
+        const contactShell = document.getElementById('contact-shell');
+        const toggles = [
+            document.getElementById('contact-toggle'),
+            document.getElementById('contact-toggle-mobile'),
+            ...document.querySelectorAll('[data-open-contact="true"]')
+        ].filter(Boolean);
+
+        function setPanelOpen(isOpen) {
+            contactPanel.classList.toggle('open', isOpen);
+            contactPanel.setAttribute('aria-hidden', String(!isOpen));
+            toggles.forEach((toggle) => {
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        function togglePanel() {
+            setPanelOpen(!contactPanel.classList.contains('open'));
+        }
+
+        toggles.forEach((toggle) => {
+            toggle.addEventListener('click', togglePanel);
+        });
+
+        document.addEventListener('click', (event) => {
+            const clickedToggle = toggles.some((toggle) => toggle.contains(event.target));
+            if (!clickedToggle && !contactShell.contains(event.target)) {
+                setPanelOpen(false);
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                setPanelOpen(false);
+            }
+        });
+    </script>
+</body>
+</html>

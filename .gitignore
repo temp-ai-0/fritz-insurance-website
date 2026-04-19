@@ -1,0 +1,30 @@
+# ── Terraform ─────────────────────────────────────────────────────────────────
+**/.terraform/
+**/.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+*.tfplan
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# terraform.tfvars can hold sensitive values — never commit
+*.tfvars
+*.tfvars.json
+
+# ── Azure ─────────────────────────────────────────────────────────────────────
+# Local parameter overrides with real values
+infra/azure/*.local.parameters.json
+
+# ── OS / Editor ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ── Secrets / env ─────────────────────────────────────────────────────────────
+.env
+.env.*
+*.pem
+*.key
