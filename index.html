@@ -45,7 +45,14 @@
     <header class="border-b border-brand-border bg-white sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="#" onclick="switchTab('home')" class="flex items-center cursor-pointer">
-                <img class="h-12 w-auto" src="Fritz_logo.png" alt="Fritz Insurance Logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" class="h-12 w-auto">
+                    <g transform="translate(10, 5)">
+                        <path d="M40 0 L80 15 L80 55 C80 85 40 110 40 110 C40 110 0 85 0 55 L0 15 Z" fill="none" stroke="#1DB3E8" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+                        <path d="M25 25 L60 25 M25 50 L50 50 M25 25 L25 80" stroke="#1DB3E8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <text x="110" y="65" font-family="'Inter', system-ui, sans-serif" font-size="42" font-weight="700" letter-spacing="1.5" fill="#0F172A">FRITZ</text>
+                    <text x="110" y="105" font-family="'Inter', system-ui, sans-serif" font-size="34" font-weight="300" letter-spacing="3" fill="#0F172A">INSURANCE</text>
+                </svg>
             </a>
 
             <nav class="hidden md:flex gap-8 items-center h-full">
@@ -70,7 +77,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div class="border border-brand-border rounded-2xl p-8 bg-brand-light text-center hover:border-brand-ink transition">
-                    <svg class="h-8 w-8 mx-auto mb-4 text-brand-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15V8h2L7 3h10l2 5h2v7H3z M7 15a2 2 0 1 0 0 4a2 2 0 1 0 0-4 M15 15a2 2 0 1 0 0 4a2 2 0 1 0 0-4"/></svg>
+                    <svg class="h-8 w-8 mx-auto mb-4 text-brand-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l1.5-4.5A2 2 0 016.4 4h11.2a2 2 0 011.9 1.5L21 10m-18 0v7a2 2 0 002 2h14a2 2 0 002-2v-7m-18 0h18M7 14h.01M17 14h.01"></path>
+                    </svg>
                     <h3 class="font-semibold text-lg mb-2">Auto</h3>
                     <p class="text-sm text-brand-slate">Everyday drivers to multi-vehicle households.</p>
                 </div>
