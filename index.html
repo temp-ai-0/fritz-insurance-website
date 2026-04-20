@@ -47,19 +47,34 @@
     <div id="home-bg-gradient" class="fixed inset-0 z-0 bg-gradient-to-b from-transparent via-white/40 to-white/80"></div>
 
     <header class="border-b border-brand-border bg-white/85 backdrop-blur-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
             <a href="#" onclick="switchTab('home')" class="flex items-center cursor-pointer">
-                <img class="h-20 w-auto" src="Fritz_logo.png" alt="Fritz Insurance Logo">
+                <img class="h-16 md:h-20 w-auto" src="Fritz_logo.png" alt="Fritz Insurance Logo">
             </a>
 
+            <!-- Desktop nav -->
             <nav class="hidden md:flex gap-8 items-center h-full">
                 <button onclick="switchTab('home')" class="nav-link active h-full flex items-center text-sm uppercase tracking-wider text-brand-slate hover:text-brand-ink transition">Home</button>
                 <button onclick="switchTab('about')" class="nav-link h-full flex items-center text-sm uppercase tracking-wider text-brand-slate hover:text-brand-ink transition">About Us</button>
                 <button onclick="switchTab('blog')" class="nav-link h-full flex items-center text-sm uppercase tracking-wider text-brand-slate hover:text-brand-ink transition">Blog</button>
                 <button onclick="switchTab('contact')" class="bg-brand-ink text-white px-6 py-2.5 rounded-full text-sm font-semibold uppercase tracking-wider hover:bg-black transition shadow-sm">Contact Us</button>
             </nav>
-            
-            <button onclick="switchTab('contact')" class="md:hidden text-sm font-semibold uppercase tracking-wider border border-brand-ink px-4 py-2 rounded-full">Contact</button>
+
+            <!-- Mobile hamburger -->
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-brand-ink" aria-label="Open menu">
+                <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile nav panel -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-brand-border bg-white/95 backdrop-blur-sm">
+            <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col">
+                <button onclick="switchTab('home'); toggleMobileMenu()" class="mobile-nav-link text-left py-3 text-sm font-semibold uppercase tracking-wider text-brand-slate border-b border-brand-border hover:text-brand-ink transition">Home</button>
+                <button onclick="switchTab('about'); toggleMobileMenu()" class="mobile-nav-link text-left py-3 text-sm font-semibold uppercase tracking-wider text-brand-slate border-b border-brand-border hover:text-brand-ink transition">About Us</button>
+                <button onclick="switchTab('blog'); toggleMobileMenu()" class="mobile-nav-link text-left py-3 text-sm font-semibold uppercase tracking-wider text-brand-slate border-b border-brand-border hover:text-brand-ink transition">Blog</button>
+                <button onclick="switchTab('contact'); toggleMobileMenu()" class="mt-4 mb-2 bg-brand-ink text-white px-6 py-3 rounded-full text-sm font-semibold uppercase tracking-wider hover:bg-black transition text-center">Contact Us</button>
+            </nav>
         </div>
     </header>
 
@@ -68,7 +83,7 @@
         <section id="home" class="tab-content active">
             <div class="relative z-10">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h1 class="font-display text-5xl md:text-6xl font-semibold leading-tight text-brand-ink mb-6">Independent Insurance, Done Right.</h1>
+                    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-brand-ink mb-6">Independent Insurance, Done Right.</h1>
                     <p class="text-lg text-brand-slate mb-10">As independent agents, we compare top rated carriers side by side to match you with the right coverage at the right price — for your family, your home, or your business.</p>
                     <button onclick="switchTab('contact')" class="bg-brand-ink text-white px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-black transition shadow-md">Get a Quote Today</button>
                 </div>
@@ -239,6 +254,15 @@
     </footer>
 
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const hamburger = document.getElementById('hamburger-icon');
+            const close = document.getElementById('close-icon');
+            menu.classList.toggle('hidden');
+            hamburger.classList.toggle('hidden');
+            close.classList.toggle('hidden');
+        }
+
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.remove('active');
@@ -256,6 +280,11 @@
             if (targetLink) {
                 targetLink.classList.add('active');
             }
+
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.getElementById('hamburger-icon').classList.remove('hidden');
+            document.getElementById('close-icon').classList.add('hidden');
 
             // Show hero background only on home tab
             const onHome = tabId === 'home';
