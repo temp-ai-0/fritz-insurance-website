@@ -42,7 +42,11 @@
 </head>
 <body class="text-brand-ink antialiased flex flex-col min-h-screen">
 
-    <header class="border-b border-brand-border bg-white sticky top-0 z-50">
+    <!-- Home tab background: fixed to viewport so it spans header → bottom -->
+    <div id="home-bg-img" class="fixed inset-0 z-0 bg-[url('fritz_landingpageappropriated.jpeg')] bg-cover bg-center bg-no-repeat grayscale opacity-20"></div>
+    <div id="home-bg-gradient" class="fixed inset-0 z-0 bg-gradient-to-b from-transparent via-white/40 to-white/80"></div>
+
+    <header class="border-b border-brand-border bg-white/85 backdrop-blur-sm sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="#" onclick="switchTab('home')" class="flex items-center cursor-pointer">
                 <img class="h-20 w-auto" src="Fritz_logo.png" alt="Fritz Insurance Logo">
@@ -61,12 +65,7 @@
 
     <main class="flex-grow max-w-6xl mx-auto px-6 py-12 md:py-20 w-full">
 
-        <section id="home" class="tab-content active relative overflow-hidden">
-            <!-- Background image layer: grayscale city skyline at low opacity -->
-            <div class="absolute inset-0 z-0 bg-[url('fritz_landingpageappropriated.jpeg')] bg-cover bg-center bg-no-repeat grayscale opacity-15"></div>
-            <!-- Gradient fade: blends image into white before the product cards -->
-            <div class="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-white/50 to-white"></div>
-
+        <section id="home" class="tab-content active">
             <div class="relative z-10">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h1 class="font-display text-5xl md:text-6xl font-semibold leading-tight text-brand-ink mb-6">Independent Insurance, Clearly Guided.</h1>
@@ -232,6 +231,11 @@
             if (targetLink) {
                 targetLink.classList.add('active');
             }
+
+            // Show hero background only on home tab
+            const onHome = tabId === 'home';
+            document.getElementById('home-bg-img').style.display = onHome ? 'block' : 'none';
+            document.getElementById('home-bg-gradient').style.display = onHome ? 'block' : 'none';
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
