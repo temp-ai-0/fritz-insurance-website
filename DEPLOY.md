@@ -1,5 +1,54 @@
 # Deployment Guide
 
+---
+
+## Simple S3 Static Hosting ← start here
+
+The fastest way to get the site live. No Terraform required — just the AWS CLI.
+
+**Prerequisites:** AWS CLI installed and configured (`aws configure`).
+
+### Deploy / re-deploy
+
+```bash
+chmod +x scripts/deploy-s3.sh
+./scripts/deploy-s3.sh
+```
+
+The script is fully **idempotent** — safe to run on every publish. It will:
+
+1. Create the bucket if it doesn't exist (skips silently if it does)
+2. Configure public-read access and static website hosting
+3. Sync all site files, removing anything deleted locally (`--delete`)
+4. Print the live URL when done
+
+**Live URL:** `http://fritz-insurance-site.s3-website.us-east-2.amazonaws.com`
+
+### Teardown
+
+```bash
+./scripts/deploy-s3.sh --teardown
+```
+
+Empties and deletes the bucket entirely.
+
+### Changing the bucket name or region
+
+Edit the two variables at the top of `scripts/deploy-s3.sh`:
+
+```bash
+BUCKET_NAME="fritz-insurance-site"
+REGION="us-east-2"
+```
+
+### Upgrading to HTTPS / custom domain
+
+S3 static hosting is HTTP only. When you're ready for a custom domain + HTTPS,
+add CloudFront in front of it — the Terraform IaC in `infra/aws/` already handles this.
+See the **AWS — S3 + CloudFront** section below.
+
+---
+
 ## Prerequisites
 
 ### AWS
