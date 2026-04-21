@@ -91,14 +91,19 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div class="border border-brand-border rounded-2xl p-8 bg-brand-light text-center hover:border-brand-ink transition">
                         <svg class="h-8 w-8 mx-auto mb-4 text-brand-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Upper body: bumper → hood → windshield → roof → rear window → trunk -->
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M2 17V15L4 11.5L7 7.5L9.5 6.5H14.5L17 7.5L20.5 12L22 14V17"/>
-                            <!-- Bottom chassis, split around wheel positions -->
-                            <path stroke-linecap="round" stroke-width="1.5" d="M2 17H5M9 17H15M19 17H22"/>
-                            <!-- Wheels -->
-                            <circle cx="7" cy="18.5" r="2.5" stroke-width="1.5"/>
-                            <circle cx="17" cy="18.5" r="2.5" stroke-width="1.5"/>
+                            <!-- Plate border -->
+                            <rect x="1" y="4" width="22" height="16" rx="2" stroke-width="1.5"/>
+                            <!-- State strip separator -->
+                            <line x1="1" y1="9.5" x2="23" y2="9.5" stroke-width="1"/>
+                            <!-- Bolt holes (filled dots at corners) -->
+                            <circle cx="3.5" cy="6.75" r="0.9" fill="currentColor" stroke="none"/>
+                            <circle cx="20.5" cy="6.75" r="0.9" fill="currentColor" stroke="none"/>
+                            <circle cx="3.5" cy="17.25" r="0.9" fill="currentColor" stroke="none"/>
+                            <circle cx="20.5" cy="17.25" r="0.9" fill="currentColor" stroke="none"/>
+                            <!-- Plate number characters -->
+                            <line x1="5" y1="14" x2="8" y2="14" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="10.5" y1="14" x2="13.5" y2="14" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="16" y1="14" x2="19" y2="14" stroke-width="1.5" stroke-linecap="round"/>
                         </svg>
                         <h3 class="font-semibold text-lg mb-2">Auto</h3>
                         <p class="text-sm text-brand-slate">Everyday drivers to multi-vehicle households.</p>
