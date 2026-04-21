@@ -91,12 +91,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div class="border border-brand-border rounded-2xl p-8 bg-brand-light text-center hover:border-brand-ink transition">
                         <svg class="h-8 w-8 mx-auto mb-4 text-brand-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Road edges converging to horizon -->
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21L12 4M21 21L12 4"/>
-                            <!-- Road base -->
-                            <path stroke-linecap="round" stroke-width="1.5" d="M3 21h18"/>
-                            <!-- Dashed center line segments -->
-                            <path stroke-linecap="round" stroke-width="1.5" stroke-dasharray="2 2.5" d="M12 18v-7"/>
+                            <!-- Bow (outer ring) -->
+                            <circle cx="7" cy="12" r="4" stroke-width="1.5"/>
+                            <!-- Bow hole -->
+                            <circle cx="7" cy="12" r="1.5" stroke-width="1.5"/>
+                            <!-- Shaft -->
+                            <path stroke-linecap="round" stroke-width="1.5" d="M11 12h10"/>
+                            <!-- Teeth -->
+                            <path stroke-linecap="round" stroke-width="1.5" d="M17 12v3M20 12v2"/>
                         </svg>
                         <h3 class="font-semibold text-lg mb-2">Auto</h3>
                         <p class="text-sm text-brand-slate">Everyday drivers to multi-vehicle households.</p>
