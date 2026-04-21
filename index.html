@@ -91,14 +91,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div class="border border-brand-border rounded-2xl p-8 bg-brand-light text-center hover:border-brand-ink transition">
                         <svg class="h-8 w-8 mx-auto mb-4 text-brand-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Bow (outer ring) -->
-                            <circle cx="7" cy="12" r="4" stroke-width="1.5"/>
-                            <!-- Bow hole -->
-                            <circle cx="7" cy="12" r="1.5" stroke-width="1.5"/>
-                            <!-- Shaft -->
-                            <path stroke-linecap="round" stroke-width="1.5" d="M11 12h10"/>
-                            <!-- Teeth -->
-                            <path stroke-linecap="round" stroke-width="1.5" d="M17 12v3M20 12v2"/>
+                            <!-- Upper body: bumper → hood → windshield → roof → rear window → trunk -->
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M2 17V15L4 11.5L7 7.5L9.5 6.5H14.5L17 7.5L20.5 12L22 14V17"/>
+                            <!-- Bottom chassis, split around wheel positions -->
+                            <path stroke-linecap="round" stroke-width="1.5" d="M2 17H5M9 17H15M19 17H22"/>
+                            <!-- Wheels -->
+                            <circle cx="7" cy="18.5" r="2.5" stroke-width="1.5"/>
+                            <circle cx="17" cy="18.5" r="2.5" stroke-width="1.5"/>
                         </svg>
                         <h3 class="font-semibold text-lg mb-2">Auto</h3>
                         <p class="text-sm text-brand-slate">Everyday drivers to multi-vehicle households.</p>
